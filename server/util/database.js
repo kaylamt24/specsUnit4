@@ -2,10 +2,8 @@ require('dotenv').config()
 const {CONNECTION_STRING} = process.env
 const Sequelize = require('sequelize')
 
-//Sequelize is capitalized because it is a class. When referring to classes in JS, you have to capitalize the name of the clas when declaring a variable. Make it easier to see which one is a class. 
-
 const sequelize = new Sequelize(CONNECTION_STRING, {
-    dialect: 'postgres',
+    dialect: 'postgres', 
     dialectOptions: {
         ssl: {
             rejectUnauthorized: false

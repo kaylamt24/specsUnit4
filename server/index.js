@@ -34,10 +34,10 @@ app.post('/login', login)
 
 app.get('/posts', getAllPosts)
 
-app.get('/userposts/user:Id', getCurrentUserPosts) //gets the posts by each user by their id
-app.post('/posts', addPost, isAuthenticated) //adds the post once they have been authenticated
-app.put('/posts/:id', editPost, isAuthenticated) //updates an existing post by id 
-app.delete('/posts/:id', deletePost, isAuthenticated) //deletes a post by a specific idr
+app.get('/userposts/:userId', getCurrentUserPosts) //gets the posts by each user by their id
+app.post('/posts', isAuthenticated, addPost) //adds the post once they have been authenticated
+app.put('/posts/:id', isAuthenticated, editPost) //updates an existing post by id 
+app.delete('/posts/:id', isAuthenticated,  deletePost) //deletes a post by a specific idr
 
 
 

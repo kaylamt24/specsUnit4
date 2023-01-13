@@ -8,7 +8,7 @@ module.exports = {
     Post: sequelize.define('post', {
         id: {
             type: DataTypes.INTEGER,
-            autoIncremenet: true,
+            autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
