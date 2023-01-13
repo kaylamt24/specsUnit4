@@ -59,7 +59,7 @@ const Auth = () => {
         />
 
         <input
-          type='text'
+          type='password'
         //   "password" //this puts the dots so you cannot see the password
           placeholder="password"
           value={password}
