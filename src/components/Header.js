@@ -6,6 +6,8 @@ import { useContext } from 'react'
 
 import AuthContext from '../store/authContext'
 
+import {  toast } from "react-toastify";
+
 const Header = () => {
 
     const authCtx = useContext(AuthContext)
@@ -35,7 +37,7 @@ const Header = () => {
                         <NavLink style={styleActiveLink} to='/form'>Add Post</NavLink>
                     </li>
                     <li>
-                            <button className='logout-btn' onClick={() => authCtx.logout()}>Logout</button>
+                    <button className='logout-btn' onClick={() => { authCtx.logout(); toast('You have successfully logged out!'); }}>Logout</button>
                     </li>
                     </ul>
                 ) : ( <ul className='main-nav'>
@@ -55,3 +57,5 @@ const Header = () => {
 }
 
 export default Header
+
+//could not get toast to work on an onclick. It would either logout or notify. I tried to add a delay but it still did not work so I had to use a standard alert. 

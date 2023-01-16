@@ -2,6 +2,7 @@
 
 import {useContext, useEffect, useState, useCallback} from 'react'
 import axios from 'axios'
+import {  toast } from "react-toastify";
 
 import AuthContext from '../store/authContext'
 
@@ -27,6 +28,7 @@ const Profile = () => {
             }
         })
             .then(() => {
+                toast.success('Post status has changed!')
                 getUserPosts()
             })
             .catch(err => {
@@ -41,6 +43,7 @@ const Profile = () => {
             }
         })
             .then(() => {
+              toast.warn('Your post has been deleted')  
                 getUserPosts()
             })
             .catch(err => {

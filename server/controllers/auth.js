@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 
+
 //JWT is used to securly transmit information between parties. 
 
 const createToken = (username, id) => {
@@ -91,11 +92,11 @@ login: async (req, res) => {
                 exp
             })
         } else {
-            alert('password incorrect')
+
             res.status(400).send('Password incorrect')
         }
         } else {
-            alert('No user found with that username')
+
             res.status(400).send('No user with that name')
             
         }
@@ -107,4 +108,3 @@ login: async (req, res) => {
 }
 
 // I am leaving as username : username for future reference though you can just put username once. 
-

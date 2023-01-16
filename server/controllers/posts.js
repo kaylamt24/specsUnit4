@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 
 
 
+
 module.exports = {
 
 
@@ -59,6 +60,7 @@ module.exports = {
             const {title, content, status, userId} = req.body
             await Post.create({title, content, privateStatus: status, userId})   
             res.sendStatus(200)
+
         } catch (error) {
             console.log(error, "error")
             res.sendStatus(400)

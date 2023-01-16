@@ -2,7 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import AuthContext from "../store/authContext";
-const alert = require('alert-node');
+import {  toast } from "react-toastify";
+
+
 
 const Auth = () => {
   //this is a form for registering and logging in users. AuthContext is a state object to store token, expiration time and userId information after successful authentication.
@@ -26,23 +28,20 @@ const Auth = () => {
     axios
     .post(register ? `/register` : `/login`, body)
     .then((res) => {
-        // console.log(res.data)
-
-
-
         console.log("after initial login");
-
+      
         authCtx.login(res.data.token, res.data.exp, res.data.userId);
-        console.log("after authCTX login");
+        toast.success('Login Successful!')
         console.log(res.data);
-        // console.log(authCtx)
-        // console.log(authCtx.login)
+
       })
       //Cleares the username and password fields if there is an error in authentication.
       .catch((err) => {
         setUsername("");
         setPassword("");
+        toast.error('Please check your entry and try again!')
         console.log(err, "this is at the catch");
+        
       });
   };
 

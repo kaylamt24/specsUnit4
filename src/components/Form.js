@@ -8,6 +8,8 @@ import {useNavigate} from 'react-router-dom'
 
 import AuthContext from '../store/authContext'
 
+import {  toast } from "react-toastify";
+
 const Form = () => {
     const {token, userId} = useContext(AuthContext)
     const navigate = useNavigate()
@@ -25,6 +27,7 @@ const Form = () => {
             }
         })
             .then(() => {
+                toast.success('Your post has been added!')
                 navigate('/profile')
             })
             .catch(err => console.log(err))
